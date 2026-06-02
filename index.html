@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifikasi Toko</title>
+</head>
+<body>
+
+<h1>🔔 Notifikasi Toko Aktif</h1>
+
+<p>
+JANGAN LUPA INPUT BARANG YANG KOSONG KE DATA HARIAN TOKO
+SESUAI KATEGORINYA MASING-MASING.
+</p>
+
+<button id="izin">Aktifkan Notifikasi</button>
+
+<script>
+document.getElementById("izin").addEventListener("click", async () => {
+
+    const izin = await Notification.requestPermission();
+
+    if (izin === "granted") {
+
+        new Notification("Notifikasi Toko", {
+            body: "JANGAN LUPA INPUT BARANG YANG KOSONG KE DATA HARIAN TOKO SESUAI KATEGORINYA MASING-MASING."
+        });
+
+        alert("Notifikasi berhasil diaktifkan");
+    } else {
+        alert("Notifikasi ditolak");
+    }
+
+});
+</script>
+
+</body>
+</html>
